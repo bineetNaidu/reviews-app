@@ -1,11 +1,17 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import React from 'react';
-import { View, Text, Button } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import { globalStyles } from '../styles/global';
 
 type RootStackParamList = {
   Home: undefined;
-  ReviewsDetails: undefined;
+  ReviewsDetails: {
+    title: string;
+    rating: number;
+    body: string;
+    key: string | number;
+  };
 };
 
 type ProfileScreenNavigationProp = StackNavigationProp<
@@ -17,11 +23,38 @@ interface Props {
 }
 
 const Home: React.FC<Props> = ({ navigation }) => {
-  const handlePress = () => navigation.navigate('ReviewsDetails');
+  const [reviews] = useState([
+    {
+      title: 'Zelda, Breath of Fresh Air',
+      rating: 5,
+      body: 'lorem ipsum',
+      key: '1',
+    },
+    {
+      title: 'Gotta Catch Them All (again)',
+      rating: 4,
+      body: 'lorem ipsum',
+      key: '2',
+    },
+    {
+      title: 'Not So "Final" Fantasy',
+      rating: 3,
+      body: 'lorem ipsum',
+      key: '3',
+    },
+  ]);
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>Home</Text>
-      <Button onPress={handlePress} title="go to reviews details" />
+      <FlatList
+        data={reviews}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('ReviewsDetails', item)}
+          >
+            <Text style={globalStyles.titleText}>{item.title}</Text>
+          </TouchableOpacity>
+        )}
+      />
     </View>
   );
 };
