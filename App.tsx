@@ -3,6 +3,7 @@ import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
 import { AppNavigator } from './routes/AppNavigator';
+import 'react-native-gesture-handler';
 
 const getFonts = () =>
   Font.loadAsync({
