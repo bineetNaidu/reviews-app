@@ -6,11 +6,15 @@ import ReviewDetails from '../screens/ReviewDetails';
 
 const { Navigator, Screen } = createStackNavigator();
 
+const options = {
+  headerStyle: { backgroundColor: 'teal' },
+};
+
 const HomeNavigator: React.FC = () => (
-  <Navigator headerMode="none">
+  <Navigator headerMode="float">
     {/* other options: "float", "screen" */}
-    <Screen name="ReviewsDetails" component={ReviewDetails} />
-    <Screen name="Home" component={Home} />
+    <Screen name="Home" component={Home} options={options} />
+    <Screen name="ReviewsDetails" component={ReviewDetails} options={options} />
   </Navigator>
 );
 
