@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
-import { AppNavigator } from './routes/AppNavigator';
+import { AppNavigator } from './routes/drawer';
 import 'react-native-gesture-handler';
 
 const getFonts = () =>
