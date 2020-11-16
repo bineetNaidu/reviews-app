@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import Home from './screens/Home';
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+import { AppNavigator } from './routes/AppNavigator';
 
 const getFonts = () =>
   Font.loadAsync({
@@ -17,7 +17,7 @@ export default function App() {
     return (
       <>
         <StatusBar />
-        <Home />
+        <AppNavigator />
       </>
     );
   } else {
