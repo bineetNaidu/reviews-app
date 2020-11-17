@@ -2,6 +2,7 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
+import Card from '../components/Card';
 import { globalStyles } from '../styles/global';
 
 type RootStackParamList = {
@@ -51,7 +52,9 @@ const Home: React.FC<Props> = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => navigation.navigate('ReviewsDetails', item)}
           >
-            <Text style={globalStyles.titleText}>{item.title}</Text>
+            <Card>
+              <Text style={globalStyles.titleText}>{item.title}</Text>
+            </Card>
           </TouchableOpacity>
         )}
       />

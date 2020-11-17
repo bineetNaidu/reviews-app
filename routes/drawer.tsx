@@ -21,7 +21,7 @@ export const RootDrawerNavigator: React.FC<Props> = ({ navigation }) => (
   </Navigator>
 );
 
-export const AppNavigator: React.FC<Props> = ({ navigation }) => (
+export const AppNavigator: React.FC = ({ navigation }: any) => (
   <NavigationContainer>
     <RootDrawerNavigator navigation={navigation} />
   </NavigationContainer>
